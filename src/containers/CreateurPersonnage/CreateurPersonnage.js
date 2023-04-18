@@ -104,8 +104,7 @@ class CreateurPersonnage extends Component{
                 arme : null
             },
             nbPointsDisponibles : 7,
-            armes : null,
-            nom : ""
+            nom : "",
         })
     }
 

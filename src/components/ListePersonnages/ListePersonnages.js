@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import Perso from './Perso/Perso'
 
 class ListePersonnages extends Component{
     state = {
@@ -29,40 +30,20 @@ class ListePersonnages extends Component{
             <>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-6">
-                            <div className="row">
-                                <div className="col-l-6">
-                                {!this.state.loading && this.state.persosArray &&
-                                    <h2>{console.log(this.state.persosArray[0].nom)}</h2>
-                                }
-                                    <img src="" alt="" />
-                                </div>
-                                <div className="col-l-6">
-                                    <h6>force : 3</h6>
-                                    <h6>agilite : 2</h6>
-                                    <h6>intelligence : 2</h6>
-                                    <div className="arme">
-                                        <img src="" alt="" />
-                                    </div>
-                                </div>
+                    {this.state.persosArray && this.state.persosArray.map((personnage, key)=>{
+                        return(
+                            <div className="col-lg-6" key={key}>
+                                <Perso 
+                                    nom={personnage.nom} 
+                                    force = {personnage.perso.force}
+                                    agilite = {personnage.perso.agilite}
+                                    intelligence = {personnage.perso.intelligence}
+                                    imagePerso = {personnage.perso.image}
+                                    imageArme = {personnage.perso.arme}
+                                />
                             </div>
-                        </div>
-                        <div className="col-lg-6">
-                            <div className="row">
-                                <div className="col-l-6">
-                                    <h2>Mya</h2>
-                                    <img src="" alt="" />
-                                </div>
-                                <div className="col-l-6">
-                                    <h6>force : 1</h6>
-                                    <h6>agilite : 3</h6>
-                                    <h6>intelligence : 2</h6>
-                                    <div className="arme">
-                                        <img src="" alt="" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        )
+                    })}
                     </div>
                 </div>
             </>
