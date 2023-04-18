@@ -1,0 +1,15 @@
+.prev{
+    background-color: #A6851C;
+	clip-path: polygon(0 50%, 100% 30%, 100% 70%);
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}
+
+.next{
+    background-color: #A6851C;
+	clip-path: polygon(0 30% , 100% 50%, 0 70%);
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+}

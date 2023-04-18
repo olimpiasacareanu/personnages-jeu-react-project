@@ -1,0 +1,29 @@
+.plus{
+    clip-path: polygon(10% 25%, 35% 25%, 35% 0%, 65% 0%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 65% 77%, 35% 77%, 35% 50%, 10% 50%);
+    background-color: #A6851C;
+	width: 30px;
+	height: 30px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.minus{
+    clip-path: polygon(10% 25%, 35% 25%, 65% 25%, 90% 25%, 90% 50%, 65% 50%, 35% 50%, 10% 50%);
+    background-color: #A6851C;
+	width: 30px;
+	height: 30px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.pointVie{
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    background-color: #59A61C;
+	width: 30px;
+	height: 30px;
+}
+
+.carac{
+    display: flex;
+    align-items: center;
+}
