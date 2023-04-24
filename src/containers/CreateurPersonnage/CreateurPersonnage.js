@@ -25,7 +25,8 @@ class CreateurPersonnage extends Component{
         this.setState({loading:true})
         axios.get("https://creaperso-24789-default-rtdb.europe-west1.firebasedatabase.app/armes.json")
             .then(reponse => {
-                const armesArray = Object.values(reponse.data)
+                console.log(reponse.data)
+                const armesArray = Object.values(reponse.data) //renvoie un tableau contenant les valeurs des propriétés propres énumérables d'un objet dont l'ordre est le même que celui obtenu avec une boucle for...in
                 this.setState({
                     armes:armesArray,
                     loading : false
@@ -34,8 +35,9 @@ class CreateurPersonnage extends Component{
             .catch(error=>{
                 this.setState({loading : false})
 
-            })
+        })
     }
+
     handleNextImage=()=>{
         this.setState(oldState=>{
             const newPersonnage = {...oldState.personnage}
@@ -118,6 +120,7 @@ class CreateurPersonnage extends Component{
             .then(reponse=>{
                 this.setState({loading:false})
                 this.handleReinitialiser()
+                this.props.refresh()
             })
             .catch(error=>{
                 console.log(error)

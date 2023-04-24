@@ -9,12 +9,10 @@ class ListePersonnages extends Component{
         loading : false,
     }
 
-    componentDidMount = () => {
-        // this.setState({loading:true})
+    loadData = () => {
         axios.get("https://creaperso-24789-default-rtdb.europe-west1.firebasedatabase.app/persos.json")
             .then(reponse => {
                 const persosArray = Object.values(reponse.data)
-                // console.log(this.state.personnages)
                 this.setState({
                     persosArray, 
                     loading:false
@@ -23,6 +21,18 @@ class ListePersonnages extends Component{
             .catch(error=>{
                 this.setState({loading : false})
         })
+    }
+
+    componentDidMount = () => {
+        this.loadData()
+    }
+
+    componentDidUpdate = (oldProps, oldState)=>{
+        if(oldProps.refresh !== this.props.refresh){
+            this.loadData()
+
+        }
+        
     }
 
     render(){
@@ -35,9 +45,7 @@ class ListePersonnages extends Component{
                             <div className="col-lg-6" key={key}>
                                 <Perso 
                                     nom={personnage.nom} 
-                                    force = {personnage.perso.force}
-                                    agilite = {personnage.perso.agilite}
-                                    intelligence = {personnage.perso.intelligence}
+                                    {...personnage.perso}
                                     imagePerso = {personnage.perso.image}
                                     imageArme = {personnage.perso.arme}
                                 />
